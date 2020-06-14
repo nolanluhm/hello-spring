@@ -25,27 +25,7 @@ public class HelloController {
     // Handles request of the form /hello?name=LaunchCode
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "hello")
     public String helloWithQueryParam(@RequestParam String name, String language) {
-        if (language.equals("english")) {
-            return "Hello, " + name + "!";
-        }
-
-        if (language.equals("spanish")) {
-            return "Hola, " + name + "!";
-        }
-
-        if (language.equals("french")) {
-            return "Bonjour, " + name + "!";
-        }
-
-        if (language.equals("german")) {
-            return "Guten tag, " + name + "!";
-        }
-
-        if (language.equals("italian")) {
-            return "Ciao, " + name + "!";
-        }
-
-        return "Invalid request.";
+        return createMessage(name, language);
     }
 
     // Handles requests of the form /hello/LaunchCode
@@ -72,5 +52,28 @@ public class HelloController {
                 "</body>" +
                 "</html>";
     }
-    
+
+    public static String createMessage(String name, String language) {
+        if (language.equals("english")) {
+            return "Hello, " + name + "!";
+        }
+
+        if (language.equals("spanish")) {
+            return "Hola, " + name + "!";
+        }
+
+        if (language.equals("french")) {
+            return "Bonjour, " + name + "!";
+        }
+
+        if (language.equals("german")) {
+            return "Guten tag, " + name + "!";
+        }
+
+        if (language.equals("italian")) {
+            return "Ciao, " + name + "!";
+        }
+
+        return "Invalid request.";
+    }
 }
