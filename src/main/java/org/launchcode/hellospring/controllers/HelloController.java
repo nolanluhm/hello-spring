@@ -23,25 +23,25 @@ public class HelloController {
 
     // lives at /hello/hello
     // Handles request of the form /hello?name=LaunchCode
-    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
-    public String helloWithQueryParam(@RequestParam String name, @RequestParam String language) {
-        if (language == "english") {
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "hello")
+    public String helloWithQueryParam(@RequestParam String name, String language) {
+        if (language.equals("english")) {
             return "Hello, " + name + "!";
         }
 
-        if (language == "spanish") {
+        if (language.equals("spanish")) {
             return "Hola, " + name + "!";
         }
 
-        if (language == "french") {
+        if (language.equals("french")) {
             return "Bonjour, " + name + "!";
         }
 
-        if (language == "german") {
+        if (language.equals("german")) {
             return "Guten tag, " + name + "!";
         }
 
-        if (language == "italian") {
+        if (language.equals("italian")) {
             return "Ciao, " + name + "!";
         }
 
@@ -64,7 +64,7 @@ public class HelloController {
                 "<select name='language' id='language'>" +
                 "<option value='english'>English</option>" +
                 "<option value='spanish'>Spanish</option>" +
-                "<option value='french>French</option>" +
+                "<option value='french'>French</option>" +
                 "<option value='german'>German</option>" +
                 "<option value='italian'>Italian</option>" +
                 "<input type='submit' value='Greet me!'>" +
@@ -72,4 +72,5 @@ public class HelloController {
                 "</body>" +
                 "</html>";
     }
+    
 }
